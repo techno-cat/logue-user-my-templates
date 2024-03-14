@@ -4,16 +4,17 @@ This software is released under the MIT License, see LICENSE.txt.
 //*/
 
 #include "LCWDelay.h"
+#include "float_math.h"
 
 static float convergePosition(float position, float current)
 {
     const float param = 0.99979f;
     const float diff = position - current;
-    if ( (diff < 0 ? -diff : diff) < 0.01f ) {
+    if ( si_fabsf(diff) < 0.001f ) {
         return position;
     }
     else {
-        return current + (diff * param);
+        return position - (diff * param);
     }
 }
 
