@@ -17,18 +17,18 @@ static float convergePosition(float position, float current)
     }
 }
 
-static float lookupBuffer(LCWDelayBuffer *buf, float position)
+static float lookupBuffer(LCWDelayBuffer *buf, float offset)
 {
-    #if 1
-        const int32_t i = (int32_t)position;
-        const float frac = position - (float)i;
-        const float val1 = LCW_DELAY_BUFFER_LUT(buf, i);
-        const float val2 = LCW_DELAY_BUFFER_LUT(buf, i+1);
-        return val1 + ((val2 - val1) * frac);
-    #else
-        const int32_t i = (int32_t)position;
-        return LCW_DELAY_BUFFER_LUT(buf, i);
-    #endif
+#if 1
+    const int32_t i = (int32_t)offset;
+    const float frac = offset - (float)i;
+    const float val1 = LCW_DELAY_BUFFER_LUT(buf, i);
+    const float val2 = LCW_DELAY_BUFFER_LUT(buf, i+1);
+    return val1 + ((val2 - val1) * frac);
+#else
+    const int32_t i = (int32_t)offset;
+    return LCW_DELAY_BUFFER_LUT(buf, i);
+#endif
 }
 
 float LCWDelayProcess(LCWDelayBlock *block, float input)

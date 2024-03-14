@@ -103,7 +103,7 @@ void DELFX_PROCESS(float *xn, uint32_t frames)
 
         *(x++) = (dry * xL) + (wet * wL);
         *(x++) = (dry * xL) + (wet * wL);
-        //*(x++) = (dry * xR) + (wet * wR);
+        // *(x++) = (dry * xR) + (wet * wR);
     }
 }
 
