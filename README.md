@@ -1,5 +1,5 @@
 # My unit templates
-This is unit templates for logue-sdk v1.1
+This is unit templates for nts-1/minilogue-xd
 
 # LICENSE
 Copyright 2024 Tomoaki Itoh
