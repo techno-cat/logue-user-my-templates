@@ -81,12 +81,10 @@ void DELFX_PROCESS(float *xn, uint32_t frames)
             *(x++) = *x * s_inputGain;
             *(x++) = *x * s_inputGain;
 
-            if (s_inputGain < 0.99998f)
-            {
+            if (s_inputGain < 0.99998f) {
                 s_inputGain += ((1.f - s_inputGain) * 0.0625f);
             }
-            else
-            {
+            else {
                 s_inputGain = 1.f;
                 break;
             }
