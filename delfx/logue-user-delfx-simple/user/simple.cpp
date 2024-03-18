@@ -12,12 +12,13 @@ This software is released under the MIT License, see LICENSE.txt.
 // BPM=30, 四分音符の場合
 // delaySamples = (samplingRate * delayTime * 60) / bpm
 //              = (48000 * 1 * 60) / 30
-//              = 96000
-// 必要なバイト数は約375k（= 96000 x 4byte）なので512k（または1024k）用意する
+//              = 96000 (0x17700)
+// 96000より大きい2のN乗の値は131072 (0x20000)
+// 必要なバイト数は512k（= 131072 x 4byte）
 //
-// 0x40000 = 2^18 = 262144 = 5.46(sec) * 48000
-// 262144 * sizeof(float) / 1024 = 1024K
-#define LCW_DELAY_SAMPLING_SIZE (0x40000)
+// 0x20000 = 2^17 = 131072 = 2.73(sec) * 48000
+// 131072 * sizeof(float) / 1024 = 512K
+#define LCW_DELAY_SAMPLING_SIZE (0x20000)
 static __sdram float s_delay_ram_sampling[LCW_DELAY_SAMPLING_SIZE];
 
 static float s_time;
