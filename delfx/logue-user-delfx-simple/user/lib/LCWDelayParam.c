@@ -18,7 +18,8 @@ const float delayTimeParams[LCW_DELAY_TIME_PARAMS] = {
     2.f / 3, // 0.6666
     3.f / 4, // 0.75
     // ---------------
-    1.f};
+    1.f
+};
 
 const float delayFbGainTable[LCW_DELAY_FB_GAIN_TABLE_SIZE] = {
     0.000000 /*    off */,
